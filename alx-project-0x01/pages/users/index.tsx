@@ -3,17 +3,17 @@ import Header from "@/components/layout/Header";
 import { UserProps } from '@/interfaces';
 
 interface UsersPageProps {
-  users: UserProps[];
+  posts: UserProps[];
 }
 
-const User: React.FC<UsersPageProps> = ({ users }) => {
-  console.log(users);
+const Users: React.FC<UsersPageProps> = ({ posts }) => {
+  console.log(posts);
   return (
     <div className='flex flex-col h-screen'>
       <Header />
       <div className="grid grid-cols-3 gap-2">
         {
-          users?.map(({ id, name, username, email, address, phone, website, company }: UserProps, key: number) => (
+          posts?.map(({ id, name, username, email, address, phone, website, company }: UserProps, key: number) => (
             <UserCard
               key={key}
               id={id}
@@ -38,9 +38,9 @@ export async function getStaticProps() {
 
   return {
     props: {
-      users: posts
+      posts: posts
     }
   };
 }
 
-export default User;
+export default Users;
